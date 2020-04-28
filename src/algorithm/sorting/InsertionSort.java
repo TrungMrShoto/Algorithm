@@ -12,7 +12,8 @@ public class InsertionSort implements SortingAlgorithm {
 
     @Override
     public void sort(int[] inputArray) {
-        recursiveSort(inputArray,inputArray.length-1);
+        nonRecursiveSort(inputArray);
+        //recursiveSort(inputArray,inputArray.length-1);
     }
     private void recursiveSort(int[] inputArray,int n)
     {
@@ -26,5 +27,19 @@ public class InsertionSort implements SortingAlgorithm {
             i--;
         }
         inputArray[i+1]=insertKey;
+    }
+
+    private void nonRecursiveSort(int[] inputArray)
+    {
+        int j,insertKey;
+        for(int i = 1;i<inputArray.length;i++) {
+            insertKey = inputArray[i];
+            j = i - 1;
+            while (j >= 0 && inputArray[j] > insertKey) {
+                inputArray[j + 1] = inputArray[j];
+                j--;
+            }
+            inputArray[j + 1] = insertKey;
+        }
     }
 }
