@@ -1,9 +1,17 @@
-package searching;
+package algorithm.sorting;
 
-public class InsertionSort implements SerchAlgorithm{
+/**
+ * @author : Nguyen Trong TRUNG
+ *
+ * Strategy : Decrease-and-Conquer (decrease-by-one)
+ * Best Case : n - 1 in O(n)
+ * Avarage Case : approx n^/4 in O(n^2)
+ * Worst Case : n(n-1)/2 in O(n^2)
+ */
+public class InsertionSort implements SortingAlgorithm {
 
     @Override
-    public void search(int[] inputArray) {
+    public void sort(int[] inputArray) {
         recursiveSort(inputArray,inputArray.length-1);
     }
     private void recursiveSort(int[] inputArray,int n)
