@@ -4,6 +4,9 @@ package algorithm.searching;
  * @author : Nguyen Trong TRUNG
  *
  * Strategy : Brute-Force
+ * Basic operation: comparision
+ *
+ * n is the number of elements in input array,
  * Best case : O(1)
  * Avarage case : p(n+1)/2 + n(1-p) (p is the probability of a successful search
  * Worst case : O(n)

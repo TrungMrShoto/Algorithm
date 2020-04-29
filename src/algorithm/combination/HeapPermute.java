@@ -16,26 +16,26 @@ public class HeapPermute {
     public void permute(int[] array)
     {
         this.array=array;
+        noOfSwap=0;
         recursivePermute(this.array.length-1);
     }
 
     private void recursivePermute(int n) {
         int t;
-        if (n==0)
+        if (n==1)
         {
-            Arrays.stream(this.array).forEach(x->
-                    System.out.print("\t")
-                    );
+            for(int i=1;i<array.length;i++)
+                System.out.print(array[i]+"\t");
             System.out.println();
         }
         else
         {
-            for (int i=0;i<=n;i++)
+            for (int i=1;i<=n;i++)
             {
                 recursivePermute(n-1);
                 if (n%2!=0)
                 {
-                    GeneralFunction.swap(this.array,0,n);
+                    GeneralFunction.swap(this.array,1,n);
                 }
                 else{
                    GeneralFunction.swap(this.array,i,n);

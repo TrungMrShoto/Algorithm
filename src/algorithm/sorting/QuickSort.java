@@ -6,9 +6,12 @@ import algorithm.generalFuntion.GeneralFunction;
  *@author : Nguyen Trong TRUNG
  *
  * Strategy : Divide-and-Conquer
+ * Basic operation : comparision
  * Best case : nlog2 n + n - 1 in O(nlog2 n)
  * Avarage case : approx 2nln n approx 1.39nlog2 n in O(nlog2 n)
  * Worst case : (n+1)(n+2)/2 - 3 in O(n^2)
+ * Stable : No
+ * In-place : Yes, O(log2 n) of stack space
  */
 public class QuickSort implements SortingAlgorithm {
 
