@@ -51,4 +51,16 @@ public class VertexNode {
         this.outDegree--;
         listOfAdjacencyVertex.remove(key);
     }
+
+    @Override
+    public String toString() {
+        return this.key;
+    }
+
+    public List<VertexNode> getAllSuccessors()
+    {
+        List<VertexNode> listVertex = new ArrayList<>();
+        listOfAdjacencyVertex.forEach((k,v)-> listVertex.add(v.getTail()));
+        return listVertex;
+    }
 }

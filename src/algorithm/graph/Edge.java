@@ -8,7 +8,7 @@ public class Edge {
     private VertexNode tail;
     private VertexNode head;
 
-    public Edge(int weight, VertexNode tail, VertexNode head) {
+    public Edge(int weight, VertexNode head,VertexNode tail) {
         this.weight = weight;
         this.tail = tail;
         this.head = head;

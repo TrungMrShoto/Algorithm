@@ -18,11 +18,16 @@ public class GraphTest {
         initialGraph.insertVertex("B");
         initialGraph.insertVertex("C");
         initialGraph.insertVertex("D");
-        initialGraph.insertVertex("E");
+        initialGraph.insertVertex("F");
+        initialGraph.insertVertex("G");
+        initialGraph.insertVertex("I");
         initialGraph.insertEdge("A","B");
-        initialGraph.insertEdge("A","C");
-        initialGraph.insertEdge("B","D");
-        initialGraph.insertEdge("C","E");
+        initialGraph.insertEdge("B","C");
+        initialGraph.insertEdge("B","F");
+        initialGraph.insertEdge("F","C");
+        initialGraph.insertEdge("G","F");
+        initialGraph.insertEdge("D","I");
+
     }
 
     @Test
@@ -92,14 +97,38 @@ public class GraphTest {
     @Test
     public void checkGetNumberOfVertices(){
         int actual = this.initialGraph.getNumberOfVertices();
-        int expected = 5;
+        int expected = 7;
         Assertions.assertEquals(expected,actual);
     }
 
     @Test
     public void checkGetNumberOfEdges(){
         int actual = this.initialGraph.getNumberOfEdges();
-        int expected = 4;
+        int expected = 6;
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void checkDFS(){
+        this.initialGraph.depthFirstSearch();
+    }
+
+    @Test
+    public void checkBFS(){
+        this.initialGraph.breadthFirstSearch();
+    }
+
+    @Test
+    public void checkTopologicalSortingByDFS(){
+        String actual = this.initialGraph.getTopologicalSortingDFSMethod();
+        String expected = "ABDIGFC";
+        Assertions.assertEquals(expected,actual);
+    }
+    @Test
+    public void checkTopologicalSortingByBFS(){
+        String actual = this.initialGraph.getTopologicalSortingBFSMethod();
+        System.out.println(actual);
+        String expected = "ADGBIFC";
         Assertions.assertEquals(expected,actual);
     }
 
