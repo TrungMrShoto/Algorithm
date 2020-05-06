@@ -4,9 +4,17 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * @author : Nguyen Trong TRUNG
+ *
+ * Stategy : Transform-and-Conquer
  */
 public class GaussianElimination {
-    public static void GE(@NotNull double[][] A)
+    /**
+     * Basic Operator : Comparision
+     * Best case :
+     * Average case :
+     * Worst case :
+     */
+    public static void forwardElimination(@NotNull double[][] A)
     {
         int m=A.length;
         int n=A[0].length;

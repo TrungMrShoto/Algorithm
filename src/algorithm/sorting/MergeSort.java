@@ -9,6 +9,7 @@ package algorithm.sorting;
  * Best case : nlog2 n in O(nlog n)
  */
 public class MergeSort implements SortingAlgorithm {
+
     @Override
     public void sort(int[] inputArray) {
         mergeSort(inputArray,0,inputArray.length-1);
@@ -23,6 +24,7 @@ public class MergeSort implements SortingAlgorithm {
             merge(inputArray,left,middle,right);
         }
     }
+
 
     private void merge(int[] inputArray, int left, int middle, int right) {
         int i,j,k;

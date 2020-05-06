@@ -33,15 +33,20 @@ public class QuickSort implements SortingAlgorithm {
      * Partition a subarray by Hoare's algorithm, using the first element as a pivot
      */
     private int partition(int[] inputArray, int left, int right) {
-        int length= inputArray.length;
         int pivot = inputArray[left];
         int i = left;
         int j = right+1;
         do{
-            do{i=i+1;} while(inputArray[i]<pivot);           //find the element larger than the pivot
-            do{j=j-1;} while(inputArray[j]>pivot);           //find the element smaller than the pivot
+            do{
+                i=i+1; }
+            while(i<=right && inputArray[i]<pivot);           //find the element larger than the pivot
+            do{
+                j=j-1; }
+            while(j>=left && inputArray[j]>pivot);           //find the element smaller than the pivot
             if (i<j)
+            {
                 GeneralFunction.swap(inputArray,i,j);
+            }
         }while(i<=j);
         GeneralFunction.swap(inputArray,left,j);
         return j;

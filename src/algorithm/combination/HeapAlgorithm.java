@@ -1,18 +1,17 @@
 package algorithm.combination;
+import algorithm.generalFuntion.GeneralFunction;
+
 
 /**
  * @author : Nguyen Trong TRUNG
  */
-import algorithm.generalFuntion.GeneralFunction;
-
-import java.util.Arrays;
-
-public class HeapPermute {
+public class HeapAlgorithm implements GeneratingAllPermutation{
     private int[] array;
     private int noOfSwap;
 
-    public HeapPermute(){}
+    public HeapAlgorithm(){}
 
+    @Override
     public void permute(int[] array)
     {
         this.array=array;
@@ -24,18 +23,18 @@ public class HeapPermute {
         int t;
         if (n==1)
         {
-            for(int i=1;i<array.length;i++)
+            for(int i=0;i<array.length;i++)
                 System.out.print(array[i]+"\t");
             System.out.println();
         }
         else
         {
-            for (int i=1;i<=n;i++)
+            for (int i=0;i<=n;i++)
             {
                 recursivePermute(n-1);
                 if (n%2!=0)
                 {
-                    GeneralFunction.swap(this.array,1,n);
+                    GeneralFunction.swap(this.array,0,n);
                 }
                 else{
                    GeneralFunction.swap(this.array,i,n);

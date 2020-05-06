@@ -1,5 +1,7 @@
 package algorithm.searching;
 
+import algorithm.ErrorMessage;
+
 /**
  * @author : Nguyen Trong TRUNG
  *
@@ -9,10 +11,16 @@ package algorithm.searching;
  * Worst case : floor(log2 n) + 1 = ceil(log2(n+1)) in O(log2 n)
  */
 public class BinarySearch implements SearchAlgorithm{
+    /**
+     * array must be sorted increasingly
+     */
     @Override
-    public int search(int[] inputArray, int key) {
-        return nonRecursive(inputArray,key);
-        //return recursive(inputArray,key,0,inputArray.length-1);
+    public int search(int[] inputArray,int key, boolean isRecursive) {
+        if (isRecursive)
+            return recursive(inputArray,key,0,inputArray.length-1);
+        else
+            return nonRecursive(inputArray,key);
+
     }
 
     private int nonRecursive(int[] inputArray, int key)
@@ -29,15 +37,16 @@ public class BinarySearch implements SearchAlgorithm{
             else
                 left = middle + 1;
         }
-        return -1;
+        return ErrorMessage.NOT_FOUND_POSITION;
     }
 
     private int recursive(int[] inputArray, int key, int left, int right)
     {
-        if (left>=right) return -1;
+        if (left>=right) return ErrorMessage.NOT_FOUND_POSITION;
         else {
             int middle = (left+right)/2;
-            if (inputArray[middle]==key) return middle;
+            if (inputArray[middle]==key)
+                return middle;
             else if (key<inputArray[middle])
                 return recursive(inputArray,key,left,middle-1);
             else

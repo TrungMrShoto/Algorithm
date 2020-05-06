@@ -1,4 +1,5 @@
 package algorithm.graph;
+import algorithm.ErrorMessage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -21,10 +22,10 @@ public class DirectedGraphAdjacencyList implements GraphAdjacencyList{
     private int insertVertex(@NotNull VertexNode vertexKeyValue)
     {
         if(listOfVertex.containsKey(vertexKeyValue.getKey()))
-            return GraphMessage.DUPLICATE_ERROR;
+            return ErrorMessage.DUPLICATE_ERROR;
         listOfVertex.put(vertexKeyValue.getKey(),vertexKeyValue);
         this.numberOfVertices++;
-        return GraphMessage.SUCCESS;
+        return ErrorMessage.SUCCESS;
     }
 
     @Override
@@ -39,14 +40,14 @@ public class DirectedGraphAdjacencyList implements GraphAdjacencyList{
             VertexNode vertexFrom = listOfVertex.get(fromVertex);
             VertexNode vertexTo = listOfVertex.get(toVertex);
             if (vertexFrom.searchVertex(vertexTo))
-                return GraphMessage.DUPLICATE_ERROR;
+                return ErrorMessage.DUPLICATE_ERROR;
 
             vertexFrom.insertEdge(vertexTo);
             this.numberOfEdges++;
-            return GraphMessage.SUCCESS;
+            return ErrorMessage.SUCCESS;
         }
         else
-            return GraphMessage.NOT_FOUND_VERTEX;
+            return ErrorMessage.NOT_FOUND_VERTEX;
     }
 
     @Override
@@ -59,10 +60,10 @@ public class DirectedGraphAdjacencyList implements GraphAdjacencyList{
                 removeEdgeToVertex(vertex);
             this.listOfVertex.remove(vertexKeyValue);
             this.numberOfVertices--;
-            return GraphMessage.SUCCESS;
+            return ErrorMessage.SUCCESS;
         }
         else
-            return GraphMessage.NOT_FOUND_VERTEX;
+            return ErrorMessage.NOT_FOUND_VERTEX;
     }
 
     private void removeEdgeToVertex(VertexNode vertex) {
@@ -82,14 +83,14 @@ public class DirectedGraphAdjacencyList implements GraphAdjacencyList{
             {
                 this.numberOfEdges--;
                 vertexFrom.deleteEdge(vertexTo);
-                return GraphMessage.SUCCESS;
+                return ErrorMessage.SUCCESS;
             }
             else{
-                return GraphMessage.NOT_FOUND_EDGE;
+                return ErrorMessage.NOT_FOUND_EDGE;
             }
         }
         else
-            return GraphMessage.NOT_FOUND_VERTEX;
+            return ErrorMessage.NOT_FOUND_VERTEX;
     }
     @Override
     public int getNumberOfEdges() {
@@ -163,7 +164,7 @@ public class DirectedGraphAdjacencyList implements GraphAdjacencyList{
         clearMarked();
         List<VertexNode> verticesWithNoPredecessor=this.getVertexWithNoPredecessor();
         if (verticesWithNoPredecessor.isEmpty())
-            return GraphMessage.NOT_FOUND_TOPOLOGICAL_SORTING;
+            return ErrorMessage.NOT_FOUND_TOPOLOGICAL_SORTING;
         StringBuilder listOfTopologicalSorting = new StringBuilder();
         Stack<VertexNode> readyStack = new Stack<>();
         verticesWithNoPredecessor.forEach(i->readyStack.push(i));
@@ -195,7 +196,7 @@ public class DirectedGraphAdjacencyList implements GraphAdjacencyList{
         clearMarked();
         List<VertexNode> verticesWithNoPredecessor=this.getVertexWithNoPredecessor();
         if (verticesWithNoPredecessor.isEmpty())
-            return GraphMessage.NOT_FOUND_TOPOLOGICAL_SORTING;
+            return ErrorMessage.NOT_FOUND_TOPOLOGICAL_SORTING;
         StringBuilder listOfTopologicalSorting = new StringBuilder();
         Queue<VertexNode> readyQueue = new LinkedList<>();
         verticesWithNoPredecessor.forEach(i->readyQueue.add(i));

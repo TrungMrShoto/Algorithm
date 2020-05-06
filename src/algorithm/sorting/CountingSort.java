@@ -16,7 +16,7 @@ public class CountingSort implements SortingAlgorithm{
 
     /**
      * Best case : -
-     * Avarage case :
+     * Average case :
      * Worst case : n + k in O(n+k) where n is the number of elements in input array,
      *                                    k is the range of the input
      * Stable : Yes

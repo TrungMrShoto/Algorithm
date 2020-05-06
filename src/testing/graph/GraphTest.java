@@ -2,7 +2,7 @@ package testing.graph;
 
 import algorithm.graph.DirectedGraphAdjacencyList;
 import algorithm.graph.GraphAdjacencyList;
-import algorithm.graph.GraphMessage;
+import algorithm.ErrorMessage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -38,7 +38,7 @@ public class GraphTest {
         actual[1] = myGraph.insertVertex("B");
         actual[2] = myGraph.insertVertex("C");
         int[] expected = new int[actual.length];
-        Arrays.fill(expected,GraphMessage.SUCCESS);
+        Arrays.fill(expected, ErrorMessage.SUCCESS);
         Assertions.assertArrayEquals(expected,actual);
     }
 
@@ -49,8 +49,8 @@ public class GraphTest {
         actual[0] = myGraph.insertVertex("A");
         actual[1] = myGraph.insertVertex("A");
         int[] expected = {
-                GraphMessage.SUCCESS,
-                GraphMessage.DUPLICATE_ERROR
+                ErrorMessage.SUCCESS,
+                ErrorMessage.DUPLICATE_ERROR
         };
         Assertions.assertArrayEquals(expected,actual);
     }
@@ -61,7 +61,7 @@ public class GraphTest {
         myGraph.insertVertex("A");
         myGraph.insertVertex("B");
         int actual = myGraph.insertEdge("A","B");
-        Assertions.assertEquals(GraphMessage.SUCCESS,actual);
+        Assertions.assertEquals(ErrorMessage.SUCCESS,actual);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class GraphTest {
         myGraph.insertVertex("A");
         myGraph.insertVertex("B");
         int actual = myGraph.insertEdge("A","C");
-        Assertions.assertEquals(GraphMessage.NOT_FOUND_VERTEX,actual);
+        Assertions.assertEquals(ErrorMessage.NOT_FOUND_VERTEX,actual);
     }
 
     @Test
@@ -79,19 +79,19 @@ public class GraphTest {
         myGraph.insertVertex("A");
         myGraph.insertVertex("B");
         int actual = myGraph.insertEdge("D","C");
-        Assertions.assertEquals(GraphMessage.NOT_FOUND_VERTEX,actual);
+        Assertions.assertEquals(ErrorMessage.NOT_FOUND_VERTEX,actual);
     }
 
     @Test
     public void checkDeleteVertex1(){
         int actual = this.initialGraph.deleteVertex("A");
-        Assertions.assertEquals(GraphMessage.SUCCESS,actual);
+        Assertions.assertEquals(ErrorMessage.SUCCESS,actual);
     }
 
     @Test
     public void checkDeleteVertex2(){
         int actual = this.initialGraph.deleteVertex("F");
-        Assertions.assertEquals(GraphMessage.NOT_FOUND_VERTEX,actual);
+        Assertions.assertEquals(ErrorMessage.NOT_FOUND_VERTEX,actual);
     }
 
     @Test
