@@ -4,8 +4,8 @@ This repository contains many algorithm which I collected during my studying.
 ## Author
 My full name is Nguyễn Trọng Trung.<br/>
 If you want to distribute to my repository, feel free to contact me at : <br/>
-- Google mail : trung.nguyen.shotokun@gmail.com <br/>
-- [Facebook](https://www.facebook.com/TrungShotokun) <br/>
+- Google mail : trung.nguyen.trong2855@gmail.com <br/>
+- [Facebook](https://www.facebook.com/ng.trong.trung) <br/>
 
 ## Reference
 In this project, I refer to some materials below: <br/>
